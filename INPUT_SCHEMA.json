@@ -1,13 +1,19 @@
 {
-  "title": "Input schema for qwiksilva/run-tasks actor.",
+  "title": "Input schema for qwiksilva/scrape-individual-articles.",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
-    "tasks": {
-      "title": "Tasks",
+    "urls": {
+      "title": "Urls",
       "type": "array",
-      "description": "Enter the tasks you want to run.",
+      "description": "Enter the urls you want to scrape.",
       "editor": "stringList"
+    },
+    "domainToScraper,": {
+      "title": "Domain to Scraper/Task mapping",
+      "type": "object",
+      "description": "Enter the dictionary mapping from domain to task.",
+      "editor": "json"
     },
     "apiEndpoint": {
       "title": "API Endpoint",

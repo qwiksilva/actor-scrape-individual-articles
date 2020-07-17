@@ -1,5 +1,5 @@
 {
-	"name": "actor-run-tasks",
+	"name": "scrape-individual-articles",
 	"version": "0.0",
 	"buildTag": "latest",
 	"env": null
