@@ -12,16 +12,6 @@ Apify.main(async () => {
         apiEndpoint
     } = input;
 
-    urls= ['https://rebusinessonline.com/general-contractor-survey-27-percent-of-firms-report-layoffs-since-coronavirus-outbreak/',
-            'https://rebusinessonline.com/outlook-is-bright-for-student-housing-in-post-covid-19-world/',
-            'https://commercialobserver.com/2020/03/la-imposes-freeze-on-most-of-its-rental-stock/',
-            'https://commercialobserver.com/2020/04/preventing-the-pending-collapse-of-the-real-estate-market/'];
-
-    domainToScraper = {
-        "commercialobserver.com":"qwiksilva/commercialobserver",
-        "rebusinessonline.com":"qwiksilva/rebusinessonline"
-    };
-
     console.log("Got the following urls as input:");
     console.log(urls);
 
