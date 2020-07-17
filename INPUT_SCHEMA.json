@@ -9,11 +9,26 @@
       "description": "Enter the urls you want to scrape.",
       "editor": "stringList"
     },
-    "domainToScraper,": {
-      "title": "Domain to Scraper/Task mapping",
+    "domainToScraper": {
+      "title": "Is URL article?",
       "type": "object",
-      "description": "Enter the dictionary mapping from domain to task.",
-      "editor": "json"
+      "description": "JSON settings of what considered a link to an article. If any of them is true, then the link will be opened.",
+      "editor": "json",
+      "prefill": 
+        {
+          "default":"qwiksilva/default-article-scraper",
+          "commercialobserver.com":"qwiksilva/commercialobserver",
+          "rebusinessonline.com":"qwiksilva/rebusinessonline",
+          "renx.ca":"qwiksilva/renx",
+          "bisnow.com":"qwiksilva/bisnow",
+          "connect.media":"qwiksilva/connect-media",
+          "cpexecutive.com":"qwiksilva/cpexecutive",
+          "housingwire.com":"qwiksilva/housingwire",
+          "multifamilybiz.com":"qwiksilva/multifamilybiz",
+          "multihousingnews.com":"qwiksilva/multihousingnews",
+          "nreionline.com":"qwiksilva/nreionline",
+          "realpage.com":"qwiksilva/realpage"
+        }
     },
     "apiEndpoint": {
       "title": "API Endpoint",
