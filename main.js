@@ -12,9 +12,6 @@ Apify.main(async () => {
         apiEndpoint
     } = input;
 
-    console.log("Got the following urls as input:");
-    console.log(urls);
-
     var scraperToUrls = {};
     for (const url of urls) {
         const request = {
@@ -43,9 +40,9 @@ Apify.main(async () => {
 
     const { datasetId } = Apify.getEnv();
     for (var task of Object.keys(scraperToUrls)) {
-        const startUrls = scraperToUrls[task];
+        const articleUrls = scraperToUrls[task];
         const taskInput = {
-            startUrls,
+            articleUrls,
             apiEndpoint,
             datasetId
         };
