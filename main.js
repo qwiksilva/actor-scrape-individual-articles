@@ -13,8 +13,8 @@ Apify.main(async () => {
     } = input;
 
     var scraperToUrls = {};
-    for (const req of urls) {
-        const url = req['url'];
+    for (const request of urls) {
+        const url = request['url'];
         var scraper = null;
         const domain = parseDomain(url);
         if (domain in domainToScraper) {
