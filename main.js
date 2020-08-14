@@ -13,8 +13,13 @@ Apify.main(async () => {
     } = input;
 
     var scraperToUrls = {};
-    for (const request of urls) {
-        const url = request['url'];
+    for (const url of urls) {
+        const request = {
+            'url': url,
+            'userData': {
+                'label': 'ARTICLE'
+            }
+        };
         var scraper = null;
         const domain = parseDomain(url);
         if (domain in domainToScraper) {
@@ -35,9 +40,9 @@ Apify.main(async () => {
 
     const { datasetId } = Apify.getEnv();
     for (var task of Object.keys(scraperToUrls)) {
-        const articleUrls = scraperToUrls[task];
+        const startUrls = scraperToUrls[task];
         const taskInput = {
-            articleUrls,
+            startUrls,
             apiEndpoint,
             datasetId
         };
