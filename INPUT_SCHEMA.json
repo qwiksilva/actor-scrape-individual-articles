@@ -7,7 +7,7 @@
       "title": "Urls",
       "type": "array",
       "description": "Enter the urls you want to scrape.",
-      "editor": "requestListSources"
+      "editor": "stringList"
     },
     "domainToScraper": {
       "title": "Is URL article?",
