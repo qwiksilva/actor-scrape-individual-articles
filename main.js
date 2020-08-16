@@ -47,7 +47,9 @@ Apify.main(async () => {
                 apiEndpoint,
                 datasetId
             };
-            console.log(`startUrls: ${startUrls}...`);
+            for (i in startUrls) {
+                console.log(`${i}: ${startUrls[i].url}...`);
+            }
             console.log(`Starting task: ${task}...`);
             result = await Apify.callTask(task, taskInput);
             console.log(`Finished task: ${task} with result:`);
