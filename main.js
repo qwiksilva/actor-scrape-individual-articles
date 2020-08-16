@@ -40,16 +40,19 @@ Apify.main(async () => {
 
     const { datasetId } = Apify.getEnv();
     for (var task of Object.keys(scraperToUrls)) {
-        const startUrls = scraperToUrls[task];
-        const taskInput = {
-            startUrls,
-            apiEndpoint,
-            datasetId
-        };
-        console.log(`Starting task: ${task}...`);
-        result = await Apify.callTask(task, taskInput);
-        console.log(`Finished task: ${task} with result:`);
-        console.log(result);
+        if (task == 'qwiksilva/default-article-scraper') {
+            const startUrls = scraperToUrls[task];
+            const taskInput = {
+                startUrls,
+                apiEndpoint,
+                datasetId
+            };
+            console.log(`startUrls: ${startUrls}...`);
+            console.log(`Starting task: ${task}...`);
+            result = await Apify.callTask(task, taskInput);
+            console.log(`Finished task: ${task} with result:`);
+            console.log(result);
+        }
     }
     console.log('All tasks finished.');
 });
