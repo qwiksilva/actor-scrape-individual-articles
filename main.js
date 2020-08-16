@@ -13,7 +13,7 @@ Apify.main(async () => {
     } = input;
 
     var scraperToUrls = {};
-    for (const url of urls) {
+    for (var url of urls) {
         const request = {
             'url': url,
             'userData': {
@@ -23,7 +23,7 @@ Apify.main(async () => {
         var scraper = null;
         const validProtocol = url.startsWith('http://') || url.startsWith('https://');
         if (!validProtocol) {
-            continue;
+            url = 'https://' + url; 
         }
         const domain = parseDomain(url);
         if (!domain) {
@@ -46,13 +46,15 @@ Apify.main(async () => {
     }
 
     const { datasetId } = Apify.getEnv();
+    const mustHaveDate = false;
     for (var task of Object.keys(scraperToUrls)) {
         if (task == 'qwiksilva/default-article-scraper') {
             const startUrls = scraperToUrls[task];
             const taskInput = {
                 startUrls,
                 apiEndpoint,
-                datasetId
+                datasetId,
+                mustHaveDate
             };
             for (i in startUrls) {
                 console.log(`${i}: ${startUrls[i].url}...`);
