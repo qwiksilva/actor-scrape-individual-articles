@@ -21,7 +21,14 @@ Apify.main(async () => {
             }
         };
         var scraper = null;
+        const validProtocol = url.startsWith('http://') || url.startsWith('https://');
+        if (!validProtocol) {
+            continue;
+        }
         const domain = parseDomain(url);
+        if (!domain) {
+            continue;
+        }
         if (domain in domainToScraper) {
             scraper = domainToScraper[domain];
         } else if ('default' in domainToScraper) {
