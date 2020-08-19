@@ -48,16 +48,21 @@ Apify.main(async () => {
     const { datasetId } = Apify.getEnv();
     const mustHaveDate = false;
     for (var task of Object.keys(scraperToUrls)) {
-        const startUrls = scraperToUrls[task];
-        const taskInput = {
-            startUrls,
-            apiEndpoint,
-            datasetId,
-            mustHaveDate
-        };
-        console.log(`Starting task: ${task}...`);
-        result = await Apify.callTask(task, taskInput);
-        console.log(`Finished task: ${task} with result:`);
+            if (task == 'qwiksilva/multihousingnews'){
+            const startUrls = scraperToUrls[task];
+            const taskInput = {
+                startUrls,
+                apiEndpoint,
+                datasetId,
+                mustHaveDate
+            };
+            console.log(`Starting task: ${task}...`);
+            for (j in startUrls) {
+                console.log(j, startUrls[j]);
+            }
+            result = await Apify.callTask(task, taskInput);
+            console.log(`Finished task: ${task} with result:`);
+        }
     }
     console.log('All tasks finished.');
 });
