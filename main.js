@@ -48,7 +48,7 @@ Apify.main(async () => {
     const { datasetId } = Apify.getEnv();
     const mustHaveDate = false;
     for (var task of Object.keys(scraperToUrls)) {
-            if (task == 'qwiksilva/multihousingnews'){
+        if (task == 'qwiksilva/multihousingnews') {
             const startUrls = scraperToUrls[task];
             const taskInput = {
                 startUrls,
