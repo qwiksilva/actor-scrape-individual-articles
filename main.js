@@ -18,16 +18,14 @@ Apify.main(async () => {
         if (!validProtocol) {
             url = 'https://' + url; 
         }
+        const domain = parseDomain(url);
         const request = {
             'url': url,
             'userData': {
-                'label': 'ARTICLE'
+                'label': 'ARTICLE',
+                'domain': domain
             }
         };
-        const domain = parseDomain(url);
-        if (!domain) {
-            continue;
-        }
 
         var scraper = null;
         if (domain in domainToScraper) {
