@@ -6,26 +6,23 @@ Apify.main(async () => {
     console.log('Input:');
     console.dir(input);
 
-    const {
+    var {
         urls,
         domainToScraper,
-        apiEndpoint
+        bubbleEndpoint,
+        apiEndpoint,
+        gsheetsEndpoint
     } = input;
 
     var scraperToUrls = {};
-    for (var url of urls) {
+    for (var request of urls) {
+        var url = request.url;
         const validProtocol = url.startsWith('http://') || url.startsWith('https://');
         if (!validProtocol) {
             url = 'https://' + url; 
         }
         const domain = parseDomain(url);
-        const request = {
-            'url': url,
-            'userData': {
-                'label': 'ARTICLE',
-                'domain': domain
-            }
-        };
+        request.userData.domain = domain;
 
         var scraper = null;
         if (domain in domainToScraper) {
@@ -49,8 +46,10 @@ Apify.main(async () => {
     for (var task of Object.keys(scraperToUrls)) {
         const startUrls = scraperToUrls[task];
         const taskInput = {
-            startUrls,
+            articleUrls,
+            bubbleEndpoint,
             apiEndpoint,
+            gsheetsEndpoint,
             datasetId,
             mustHaveDate
         };

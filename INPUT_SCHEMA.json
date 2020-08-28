@@ -7,7 +7,7 @@
       "title": "Urls",
       "type": "array",
       "description": "Enter the urls you want to scrape.",
-      "editor": "stringList"
+      "editor": "requestListSources"
     },
     "domainToScraper": {
       "title": "Is URL article?",
@@ -30,10 +30,22 @@
           "realpage.com":"qwiksilva/realpage"
         }
     },
+    "bubbleEndpoint": {
+      "title": "Bubble.io Endpoint",
+      "type": "string",
+      "description": "URL for where you want to send the data to. Leave blank if you do not want to send data to an API.",
+      "editor": "textfield"
+    },
     "apiEndpoint": {
       "title": "API Endpoint",
       "type": "string",
       "description": "URL for where you want to send the data to",
+      "editor": "textfield"
+    },
+    "gsheetsEndpoint": {
+      "title": "API Endpoint",
+      "type": "string",
+      "description": "URL for google sheets update",
       "editor": "textfield"
     }
   },
