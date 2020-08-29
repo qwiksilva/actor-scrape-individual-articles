@@ -54,8 +54,8 @@ Apify.main(async () => {
             mustHaveDate
         };
         console.log(`Starting task: ${task}...`);
-        for (j in startUrls) {
-            console.log(j, startUrls[j]['url']);
+        for (j in articleUrls) {
+            console.log(j, articleUrls[j]['url']);
         }
         result = await Apify.callTask(task, taskInput);
         console.log(`Finished task: ${task} with result:`);
