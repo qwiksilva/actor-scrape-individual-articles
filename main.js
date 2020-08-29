@@ -44,7 +44,7 @@ Apify.main(async () => {
     const { datasetId } = Apify.getEnv();
     const mustHaveDate = false;
     for (var task of Object.keys(scraperToUrls)) {
-        const startUrls = scraperToUrls[task];
+        const articleUrls = scraperToUrls[task];
         const taskInput = {
             articleUrls,
             bubbleEndpoint,
