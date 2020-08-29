@@ -46,12 +46,14 @@ Apify.main(async () => {
     for (var task of Object.keys(scraperToUrls)) {
         const articleUrls = scraperToUrls[task];
         const taskInput = {
+            startUrls: [],
             articleUrls,
             bubbleEndpoint,
             apiEndpoint,
             gsheetsEndpoint,
             datasetId,
-            mustHaveDate
+            mustHaveDate,
+            onlyNewArticles: false
         };
         console.log(`Starting task: ${task}...`);
         for (j in articleUrls) {
